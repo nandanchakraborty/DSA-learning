@@ -84,10 +84,10 @@ int main() {
     Node  y(ar[0]);
     Node* head = convertarr2ll(ar);
 
-   // print(head);
+    // print(head);
     //cout<<endl<<"after deleting first node :";
-   // head =deletenode(head);
-   // print(head);
+    // head =deletenode(head);
+    // print(head);
     head = deletetail(head);
     cout<<endl<<"after deleting tail :";
     print(head);
