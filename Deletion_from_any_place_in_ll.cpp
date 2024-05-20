@@ -6,7 +6,7 @@ class Node {
     Node* next;
 
     Node(int data1,Node* next1 = nullptr) {
-        data= data1;
+        data = data1;
         next = next1;
 
     }
@@ -38,8 +38,8 @@ Node* delete_k_element(Node* head,int k) {
     if(head == NULL) return head;
 
     if(k==1) {
-        head = head->next;
-        return head;
+      return  head = head->next;
+
     }
 
     while(temp!=NULL) {
@@ -62,6 +62,32 @@ Node* delete_k_element(Node* head,int k) {
 
 
 }
+Node* delete_a_value(Node* head,int n){
+        Node* temp = head;
+        Node* prev = NULL;
+        if(n== head->data) return head->next;
+
+        if(head == NULL) return NULL;
+        while(temp){
+
+        if(temp->data == n){
+        prev->next = prev->next->next;
+        free(temp);
+        break;
+
+
+
+        }
+        prev= temp;
+        temp = temp->next;
+
+        }
+        return head;
+
+
+
+
+}
 
 void print(Node* head) {
     Node* temp = head;
@@ -81,14 +107,18 @@ int main() {
     vector<int> ar= { 1,3,5,4,7};
     Node y(ar[0]);
     Node* head= convertarr2ll(ar);
-    //print(head);
+    print(head);
 
-    cout<<"enter the element number to delete :";
+    cout<<"enter the value  to delete :"<<endl;
     int n;
     cin>>n;
-    head = delete_k_element(head,n);
+   /* head = delete_k_element(head,n);
     cout<<"after deleting "<<n<<"th node :"<<endl;
     print(head);
+    */
+    head = delete_a_value(head,n);
+    print(head);
+
 
 
 
